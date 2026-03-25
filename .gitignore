@@ -1,0 +1,10 @@
+# Virtual Environment
+ecg_env/
+
+# Datasets and Images (Too large for GitHub)
+data/
+scalograms/
+
+# Python cache
+__pycache__/
+*.pyc
