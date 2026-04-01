@@ -90,7 +90,7 @@ def save_scalogram(segment, save_path):
     
     # Save the final RGB image to disk
     cv2.imwrite(save_path, resized_image)
-
+    
 # ==========================================
 # 5. DATA LOADING & PROCESSING PIPELINE
 # ==========================================
@@ -111,7 +111,8 @@ def process_all_data(data_directory, output_directory):
         
         for filename in os.listdir(class_folder_path):
             if filename.endswith(".dat"): 
-                file_prefix = filename.split('.')
+                # FIXED LINE HERE: Added  to extract just the string name
+                file_prefix = os.path.splitext(filename)[0] 
                 record_path = os.path.join(class_folder_path, file_prefix)
                 
                 try:
@@ -139,7 +140,6 @@ def process_all_data(data_directory, output_directory):
                     print(f"Successfully saved {len(segments)*4} scalograms for {filename}.")
                 except Exception as e:
                     print(f"Error processing {filename}: {e}")
-
 # ==========================================
 # EXECUTE THE PIPELINE
 # ==========================================
