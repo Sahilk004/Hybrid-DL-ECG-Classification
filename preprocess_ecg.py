@@ -96,7 +96,7 @@ def save_scalogram(segment, save_path):
 # ==========================================
 def process_all_data(data_directory, output_directory):
     """The master pipeline tying everything together."""
-    classes = ['ARR', 'CSR', 'NSR']
+    classes = ['ARR', 'CHF', 'NSR']
     
     # Create the output directories for the images if they don't exist
     for ecg_class in classes:
